@@ -47,7 +47,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee getEmpById(Long empidL) {
+    public Employee getEmpById(Integer empidL) {
     	try {
 			return employeeRepo.findById(empidL).get();
 			
@@ -63,7 +63,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     @Transactional
-    public Employee updateEmployee(Long id, Employee newEmployeeData) {
+    public Employee updateEmployee(Integer id, Employee newEmployeeData) {
         Employee existingEmployee = employeeRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Employee not found with id: " + id));
 
@@ -74,7 +74,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     @Transactional
-    public void deleteEmpById(Long empidL) {
+    public void deleteEmpById(Integer empidL) {
     	try {
 			employeeRepo.deleteById(empidL);
 		}catch (IllegalArgumentException e) {

@@ -39,7 +39,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/emp/{empid}")
-    public ResponseEntity<?> getEmpById(@PathVariable("empid") Long empidL) {
+    public ResponseEntity<?> getEmpById(@PathVariable("empid") Integer empidL) {
     	try {
 			Employee empRetrieved = employeeService.getEmpById(empidL);
 			return new ResponseEntity<Employee>(empRetrieved, HttpStatus.OK);
@@ -53,7 +53,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/delete/{empid}")
-    public ResponseEntity<?> deleteEmpById(@PathVariable("empid") Long empidL) {
+    public ResponseEntity<?> deleteEmpById(@PathVariable("empid") Integer empidL) {
         try {
             employeeService.deleteEmpById(empidL);
             return new ResponseEntity<>("Employee deleted successfully", HttpStatus.OK);
@@ -63,7 +63,7 @@ public class EmployeeController {
     }
 
     @PutMapping("/update/{empid}")
-    public ResponseEntity<?> updateEmployee(@RequestBody Employee employee, @PathVariable("empid") Long id) {
+    public ResponseEntity<?> updateEmployee(@RequestBody Employee employee, @PathVariable("empid") Integer id) {
     	Employee employeeSaved = employeeService.updateEmployee(id,employee);
 		return new ResponseEntity<Employee>(employeeSaved, HttpStatus.CREATED);
     }

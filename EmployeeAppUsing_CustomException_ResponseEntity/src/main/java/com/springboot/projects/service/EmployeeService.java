@@ -8,9 +8,11 @@ public interface EmployeeService {
 
 	public Employee addEmployee(Employee employee);
 	public List<Employee> getAllEmployees();
-	public Employee getEmpById(Long empidL);
-	public void deleteEmpById(Long empidL);
-	Employee updateEmployee(Long id, Employee newEmployeeData);
+	public Employee getEmpById(Integer empidL);
+
+	Employee updateEmployee(Integer id, Employee newEmployeeData);
+	void deleteEmpById(Integer empidL);
+	
 	
 
 }
